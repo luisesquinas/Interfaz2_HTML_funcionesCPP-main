@@ -10,6 +10,7 @@
     <form id="miFormulario">
         <input type="number" id="num1" placeholder="Número 1" required>
         <input type="number" id="num2" placeholder="Número 2" required>
+        <input type="number" id="num3" placeholder="Número 3" required> <!-- Nuevo campo -->
         <button type="submit">Sumar</button>
     </form>
     <div id="resultado"></div>
@@ -20,8 +21,9 @@
 
             num1 = document.getElementById('num1').value;
             num2 = document.getElementById('num2').value;
+            num3 = document.getElementById('num3').value; // Obtener el valor de num3
 
-            response = await fetch(`/cgi-bin/funciones.cgi?num1=${num1}&num2=${num2}`);
+            response = await fetch(`/cgi-bin/funciones.cgi?num1=${num1}&num2=${num2}&num3=${num3}`); // Enviar num3
             data = await response.text();
             document.getElementById('resultado').innerText = `Resultado: ${data}`;
         };
